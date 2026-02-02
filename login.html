@@ -1,0 +1,46 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Zentask - Login</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body { background: #f8fafc; font-family: 'Inter', sans-serif; display: flex; align-items: center; justify-content: center; height: 100vh; }
+        .card { border: none; border-radius: 1.5rem; box-shadow: 0 10px 25px rgba(0,0,0,0.05); }
+    </style>
+</head>
+<body>
+<div class="container" style="max-width: 400px;">
+    <div class="card p-5">
+        <h2 class="text-center fw-bold text-primary mb-4">Zentask</h2>
+        <form id="loginForm">
+            <div class="mb-3">
+                <label class="form-label">Username</label>
+                <input type="text" id="username" class="form-control form-control-lg" required>
+            </div>
+            <div class="mb-4">
+                <label class="form-label">Password</label>
+                <input type="password" id="password" class="form-control form-control-lg" required>
+            </div>
+            <button type="submit" class="btn btn-primary btn-lg w-100 mb-3">Login</button>
+            <p class="text-center mb-0">No account? <a th:href="@{/register}">Register</a></p>
+        </form>
+    </div>
+</div>
+<script>
+    document.getElementById('loginForm').onsubmit = async (e) => {
+        e.preventDefault();
+        const res = await fetch('/api/auth/login', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({
+                username: document.getElementById('username').value,
+                password: document.getElementById('password').value
+            })
+        });
+        if (res.ok) window.location.href = '/dashboard';
+        else alert('Invalid credentials');
+    };
+</script>
+</body>
+</html>

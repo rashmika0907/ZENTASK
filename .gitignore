@@ -1,0 +1,17 @@
+
+target/
+!.mvn/wrapper/maven-wrapper.jar
+application.properties.old
+.project
+.classpath
+.settings/
+.factorypath
+.idea/
+*.iml
+*.iws
+*.ipr
+.vscode/
+bin/
+out/
+.DS_Store
+*.log

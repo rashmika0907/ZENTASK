@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: zentask
+  datasource:
+    url: ${SPRING_DATASOURCE_URL:jdbc:h2:mem:zentaskdb}
+    driver-class-name: ${SPRING_DATASOURCE_DRIVER_CLASS_NAME:org.h2.Driver}
+    username: ${SPRING_DATASOURCE_USERNAME:sa}
+    password: ${SPRING_DATASOURCE_PASSWORD:password}
+  jpa:
+    hibernate:
+      ddl-auto: ${SPRING_JPA_HIBERNATE_DDL_AUTO:update}
+    show-sql: false
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+
+zentask:
+  jwt:
+    secret: ${JWT_SECRET:9a6747534578e931345b546d734e5a782b647038316c4f39524d45513d3d}
+    expiration: 86400000 # 24 hours

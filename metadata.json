@@ -1,0 +1,7 @@
+{
+  "name": "Zentask Project",
+  "description": "A complete Spring Boot 3.x backend for a zen-style task management system.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}
