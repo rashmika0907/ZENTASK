@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: zentask
+    runtime: java
+    runtimeVersion: 17
+    buildCommand: mvn clean package -DskipTests
+    startCommand: java -jar target/zentask-0.0.1-SNAPSHOT.jar
+    envVars:
+      - key: SPRING_DATASOURCE_URL
+        scope: build
+      - key: SPRING_DATASOURCE_USERNAME
+        scope: build
+      - key: SPRING_DATASOURCE_PASSWORD
+        scope: build
+      - key: JWT_SECRET
+        scope: build
